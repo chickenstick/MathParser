@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B920C934-9D4A-4A82-9A0D-D4A5FAFD958B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MathParser</RootNamespace>
+    <AssemblyName>MathParser</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Tokens\ArgumentSeparatorToken.cs" />
+    <Compile Include="Tokens\Attributes\ArgumentCountAttribute.cs" />
+    <Compile Include="Tokens\Attributes\ConstantValueAttribute.cs" />
+    <Compile Include="Tokens\Attributes\OperatorAssociativityAttribute.cs" />
+    <Compile Include="Tokens\Attributes\OperatorPrecedenceAttribute.cs" />
+    <Compile Include="Tokens\Enums\ArgumentSeparatorType.cs" />
+    <Compile Include="Tokens\Enums\ConstantType.cs" />
+    <Compile Include="Parser.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tokens\Enums\Associativity.cs" />
+    <Compile Include="Tokens\FunctionToken.cs" />
+    <Compile Include="Tokens\Enums\FunctionType.cs" />
+    <Compile Include="Tokens\IToken.cs" />
+    <Compile Include="Tokens\NormalNotationQueue.cs" />
+    <Compile Include="Tokens\NumberToken.cs" />
+    <Compile Include="Tokens\Enums\OperatorPrecedence.cs" />
+    <Compile Include="Tokens\OperatorToken.cs" />
+    <Compile Include="Tokens\Enums\OperatorType.cs" />
+    <Compile Include="Tokens\ParenthesisToken.cs" />
+    <Compile Include="Tokens\Enums\ParenthesisType.cs" />
+    <Compile Include="Tokens\Extensions\UtilityExtensions.cs" />
+    <Compile Include="Tokens\RpnQueue.cs" />
+    <Compile Include="Tokens\TokenFactory.cs" />
+    <Compile Include="Tokens\Enums\TokenType.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\EnumHelper\EnumHelper\EnumHelper.csproj">
+      <Project>{44D957AB-68F4-4FA0-A4C8-9E04E5421BE2}</Project>
+      <Name>EnumHelper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
